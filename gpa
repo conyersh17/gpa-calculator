@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+int main() {
+    //needed variables
+    float points, total_points{},
+        total_credits{}, gpa;
+    int hours, grade, num;
+
+    cout << "Welcome to the GPA Calculator program\n";
+    cout << "Enter in your total courses for the term : ";
+    cin >> num;
+    /*
+    START LOOP
+     -PERFORMS ACTIONS
+      INPUT CREDIT HOURS
+      INPUT GRADE (as A = 4 | B = 3 | C = 2 | D = 1)
+      ACCUMULATE TOTAL POINTS AND TOTAL CREDITS
+    END LOOP
+     DISPLAY GPA (TOTAL POINTS / TOTAL CREDITS)
+    */
+    for (int i = 1; i <= num; ++i) {
+        cout << "Enter credit hours for course #" << i << ":";
+        cin >> hours;
+        cout << "Enter the grade ( A=4, B=3, C=2, D=1 ): ";
+        cin >> grade;
+        total_points = hours * grade + total_points;
+        total_credits = hours + total_credits;
+    }
+    //show GPA
+
+    gpa = total_points / total_credits;
+        cout << "GPA calculation :" << gpa << endl;
+        //display if student is on Dean's list;
+        if (gpa >= 3.5)
+            cout << " You are now on Deans list.\n";
+        else
+            cout << "No Dean's list this time\n";
+
+}
